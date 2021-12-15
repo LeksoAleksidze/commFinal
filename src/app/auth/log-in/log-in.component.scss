@@ -1,0 +1,89 @@
+@import "../../../styles.scss";
+
+.log-in {
+  height: calc(100% - 60px);
+  @include centerFlexMx(center, center);
+  form {
+    position: relative;
+    @keyframes showFade {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .alert {
+      color: red;
+      position: absolute;
+      top: 0px;
+      left: -204px;
+      animation: showFade 0.4s forwards;
+      &.alert-email {
+        top: 7%;
+      }
+      &.alert-password {
+        top: 45%;
+      }
+    }
+    .input-box {
+      position: relative;
+      label {
+        position: absolute;
+        top: 25%;
+        left: 20px;
+        font-size: 13px;
+        font-weight: 400;
+        transition: all 0.3s ease;
+      }
+      input {
+        height: 40px;
+        width: 300px;
+        border: 1px solid #ccc;
+        outline: none;
+        margin-bottom: 20px;
+        padding-left: 15px;
+
+        &:valid ~,
+        &:focus ~ {
+          label {
+            top: -9px;
+            left: 5px;
+            font-size: 9px;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    button {
+      width: 300px;
+      margin: auto;
+      letter-spacing: 2px;
+      border: none;
+      outline: none;
+      background-color: brown;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      height: 45px;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: rgba($color: #000000, $alpha: 0.6);
+      }
+    }
+  }
+}
+
+input:-webkit-autofill ~ {
+  label {
+    top: -9px !important;
+    left: 5px !important;
+    font-size: 9px !important;
+  }
+}

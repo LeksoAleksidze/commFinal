@@ -1,0 +1,30 @@
+{
+  "title": "Animals",
+  "search": "Search",
+  "add": "Add",
+  "Review": "Review",
+  "notFound": "Sorry, Not Found",
+  "characters": "Characters",
+  "LifeAge": "Life Age",
+  "Name": "Name",
+  "choose": "Choose",
+  "rating": "Rating",
+  "back": "Back",
+  "temperament": "temperament",
+  "details": "Details",
+  "errors": {
+    "not_found": "Page not found"
+  },
+  "auth": {
+    "sign-in": "Sign In",
+    "sign-up": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "repeat_password": "Repeat Password",
+    "sign-out": "Sign Out",
+    "emailRequired": "Email Is Required",
+    "passwordRequired": "Password Is Required",
+    "repeatPassword": "Repeat Password",
+    "passwordMatched": "Password Not Matched"
+  }
+}

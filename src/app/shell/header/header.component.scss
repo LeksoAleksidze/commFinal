@@ -1,0 +1,45 @@
+@import "../../../styles.scss";
+
+header {
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  background-color: brown;
+  padding: 0px 140px;
+  @include centerFlexMx(center, space-between);
+
+  .log-out,
+  .buttons {
+    color: #fff;
+    font-size: 16px;
+    .log {
+      display: inline-block;
+      margin-left: 20px;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .logo {
+    text-decoration: none;
+    @include centerFlexMx(center, center);
+    img {
+      width: 40px;
+    }
+    span {
+      text-transform: uppercase;
+      margin-left: 20px;
+      color: #fff;
+      padding: 0;
+      font-size: 20px;
+    }
+  }
+
+  .langs {
+    width: 50px;
+    @include centerFlexMx(center, center);
+    cursor: pointer;
+  }
+}

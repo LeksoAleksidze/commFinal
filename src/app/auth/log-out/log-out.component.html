@@ -1,0 +1,36 @@
+<div class="log-in">
+  <form (ngSubmit)="register(form)" #form='ngForm' [mustMatch]="['password', 'repeatPassword']" autocomplete="off">
+    <div class="input-box">
+      <input id="email" required type="text" name="email" ngModel>
+      <label for="email">{{ 'auth.email' | translate}}</label>
+    </div>
+    <ng-container *ngIf="form.submitted && form.invalid">
+      <div class="alert alert-email" role="alert" *ngIf="form.controls.email?.errors?.required">
+        {{ 'auth.emailRequired' | translate }}
+      </div>
+    </ng-container>
+    <div class="input-box">
+      <input id="password" required type="password" name="password" #password="ngModel" ngModel>
+      <label for="password">{{ 'auth.password' | translate}}</label>
+    </div>
+    <ng-container *ngIf="form.submitted && form.invalid">
+      <div class="alert alert-password" role="alert" *ngIf="form.controls.email?.errors?.required">
+        {{ 'auth.passwordRequired' | translate }}
+      </div>
+    </ng-container>
+    <div class="input-box">
+      <input id="repeat-password" name="repeatPassword" #repeatPassword="ngModel" ngModel required type="password">
+      <label for="repeat-password">{{ 'auth.repeat_password' | translate}}</label>
+    </div>
+    <ng-container *ngIf="form.submitted && form.invalid">
+      <div class="alert alert-repeat" role="alert" *ngIf="form.controls.email?.errors?.required">
+        {{ 'auth.repeatPassword' | translate }}
+      </div>
+    </ng-container>
+    <div class="alert" style="top: 59%!important; left: 105%!important; white-space: nowrap;" role="alert"
+      *ngIf="form.controls.repeatPassword?.errors?.mustMatch">
+      {{ 'auth.passwordMatched' | translate}}
+    </div>
+    <button>{{ 'auth.sign-up' | translate}}</button>
+  </form>
+</div>

@@ -1,0 +1,8 @@
+<ng-container *ngIf="item.data.url && item.data.name">
+  <div class="container">
+    <img [src]="item.data.url" [title]="item.data.name">
+    <span>{{ 'Name' | translate}}: {{ item.data.name }}</span>
+    <span>{{ 'rating' | translate}}: {{ item.data.rating }}</span>
+    <button (click)="goToDetails()">{{ 'details' | translate}}</button>
+  </div>
+</ng-container>

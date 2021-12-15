@@ -1,0 +1,24 @@
+<div class="log-in">
+  <form (ngSubmit)="signIn(form.value)" autofocus autocomplete="off" #form="ngForm">
+    <div class="input-box">
+      <input id="email" type="text" name="email" required ngModel>
+      <label for="email">{{ 'auth.email' | translate}}</label>
+    </div>
+    <ng-container *ngIf="form.submitted && form.invalid">
+      <div class="alert alert-email" role="alert" *ngIf="form.controls.email?.errors?.required">
+        {{ 'auth.emailRequired' | translate }}
+      </div>
+    </ng-container>
+    <div class="input-box">
+      <input id="password" type="password" name="password" required ngModel>
+      <label for="password">{{ 'auth.password' | translate}}</label>
+    </div>
+    <button>{{ 'auth.sign-in' | translate}}</button>
+    <ng-container *ngIf="form.submitted && form.invalid">
+      <div class="alert alert-password" *ngIf="form.controls.password?.errors?.required">
+        {{ 'auth.passwordRequired' | translate }}
+      </div>
+    </ng-container>
+  </form>
+</div>
+<app-pop-up (closeEmit)="closePopUp($event)" *ngIf="addSuccess" [title]="textTitle"></app-pop-up>

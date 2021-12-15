@@ -1,0 +1,12 @@
+<div class="container">
+  <a routerLink="/content">{{ 'back' | translate }}</a>
+  <div *ngIf="htm">
+    <img [src]="htm.animal[0].url">
+    <div class="info">
+      <span>ID : {{htm.animal[0].breeds[0].id}}</span>
+      <span>{{ 'Name' | translate }} : {{htm.animal[0].breeds[0].name}}</span>
+      <span>{{ 'LifeAge' | translate}}: {{htm.animal[0].breeds[0].life_span}}</span>
+      <span>{{ 'temperament' | translate}} : {{htm.animal[0].breeds[0].temperament}}</span>
+    </div>
+  </div>
+</div>

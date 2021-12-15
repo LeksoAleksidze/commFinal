@@ -1,0 +1,25 @@
+<header>
+  <a href="/" class="logo">
+    <img src="../../../assets//images/eagle.png" alt="Logo">
+    <span>{{ "title" | translate }}</span>
+  </a>
+
+
+  <div *ngIf="!isLoggedIn" class="buttons">
+    <div (click)="goTLogIn()" class="log">
+      {{ "auth.sign-in" | translate }}
+    </div>
+    <div (click)="goToLogOut()" class="log">
+      <span routerLink="/log-out">{{ "auth.sign-up" | translate }}</span>
+    </div>
+  </div>
+  <div *ngIf="isLoggedIn" class="log-out">
+    <div (click)="signOut()" class="log">
+      {{ "auth.sign-out" | translate }}
+    </div>
+  </div>
+  <div class="langs">
+    <img *ngIf='kaLang' (click)="changeLang('ka')" src="../../../assets//images/ka.png" alt="ka">
+    <img *ngIf='enLang' (click)="changeLang('en')" src="../../../assets//images/en.png" alt="en">
+  </div>
+</header>

@@ -1,0 +1,49 @@
+<div class="search-container">
+  <select [(ngModel)]="searchKey">
+    <ng-container *ngIf="breedsOptions$ | async as breed">
+      <option value="">{{ 'choose' | translate}}</option>
+      <option *ngFor="let x of breed" [value]="x.id">
+        {{ x.name }}
+      </option>
+    </ng-container>
+  </select>
+  <button (click)="searchDog(0)">{{ 'search' | translate}}</button>
+  <!-- <span class="badge rounded-pill bg-success ms-1" *ngFor="let name of lastThreeSearches">{{
+    name }}</span> -->
+  <div class="storage">
+    <div *ngFor="let i of htmlArray">
+      <span (click)="searchDog(i.id)">{{i.name}}</span>
+    </div>
+  </div>
+  <div class="full" *ngIf="dogSelected$ | async as dog">
+    <div class="result" style="margin-top: 50px;">
+      <ng-container *ngIf="dog.animal.length; else empty">
+        <span style="margin: 10px;">{{ 'Name' | translate }}: {{dog.animal[0].breeds[0].name}}</span>
+        <span style="margin: 10px;">{{ 'LifeAge' | translate }}: {{dog.animal[0].breeds[0].life_span}}</span>
+
+        <img class="animal" [src]="dog.animal[0]?.url" alt="">
+
+        <!-- <img class="flag" [src]="dog.flag[0]?.flagUrl" [title]="dog.flag[0]?.population"> -->
+      </ng-container>
+      <ng-template #empty>
+        <span>{{ 'notFound' | translate }}</span>
+      </ng-template>
+    </div>
+    <form class="desc" [formGroup]="form" (submit)="submit(dog)">
+      <div class="review">
+        <label for="">{{ 'Review' | translate }}</label>
+        <textarea name="" formControlName="review" id="" cols="30" rows="10"></textarea>
+        <span appCharacter [length]="form.controls.review?.value.length">{{ 'characters' | translate }}: {{
+          form.controls.review?.value.length }}</span>
+      </div>
+      <div class="rating">
+        <label for="">{{'rating' | translate }}</label>
+        <span class="ms-2" *ngFor="let rating of ratings">
+          <input type="radio" class="form-check-input" [value]="rating" formControlName="rating" />
+        </span>
+      </div>
+      <button type="submit">{{ 'add' | translate }}</button>
+    </form>
+  </div>
+</div>
+<app-pop-up (closeEmit)="closePopUp($event)" *ngIf="addSuccess" [title]="textTitle"></app-pop-up>
