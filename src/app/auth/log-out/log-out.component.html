@@ -34,3 +34,5 @@
     <button>{{ 'auth.sign-up' | translate}}</button>
   </form>
 </div>
+
+<app-pop-up (closeEmit)="closePopUp($event)" *ngIf="addSuccess" [title]="textTitle"></app-pop-up>
